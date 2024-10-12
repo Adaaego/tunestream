@@ -11,7 +11,7 @@ const [currentSong, setCurrentSong] = useState(song[4])
 
   return (
     <div className="App">
-     <Song />
+     <Song currentSong= {currentSong} />
      <Player />
     </div>
   );
