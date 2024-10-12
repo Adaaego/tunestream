@@ -1,0 +1,16 @@
+.song-container{
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+        font-size: 2rem;
+        padding: 2rem;
+    }
+    h3{
+        font-size: 5rem;
+    }
+}
