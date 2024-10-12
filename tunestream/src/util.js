@@ -50,7 +50,7 @@ const chillHop = () => {
            {
             name : 'Ruck P',
             artist : 'Memories Pt.1',
-            cover : 'https://cms.chillhop.com/media/21795/squarel034f52eeaeceb144cca67b0930d705d32fc39e37.jpg',
+            cover : 'https://i.scdn.co/image/ab67616d0000b2738aee4bdb30633349a72a1342',
             color : ['#CC858B', '#6A6887'],
             audio : 'https://stream.chillhop.com/mp3/21659',
             id : uuidv4(),
