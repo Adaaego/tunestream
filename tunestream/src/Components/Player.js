@@ -8,8 +8,8 @@ const Player = ({currentSong, isPlaying, setIsPlaying}) => {
 
     //STATE
     const [songInfo, setSongInfo] =useState({
-        currentTime : 'null',
-        duration : 'null',
+        currentTime : 0,
+        duration : 0,
     })
     
     //EVENTS
@@ -63,7 +63,7 @@ return(
 
 <div className='play-control'>
 <FontAwesomeIcon className='skip-backward' icon ={faAngleLeft} size = '2x'/>
-<FontAwesomeIcon className='play' icon ={faPlay} size = '2x' onClick={playHandler} />
+<FontAwesomeIcon className='play' icon ={ isPlaying? faPause : faPlay} size = '2x' onClick={playHandler} />
 <FontAwesomeIcon className='skip-forward' icon ={faAngleRight} size = '2x'/>
 </ div>
 
