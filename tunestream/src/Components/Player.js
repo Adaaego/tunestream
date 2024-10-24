@@ -1,16 +1,10 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-const Player = ({currentSong, isPlaying, setIsPlaying}) => {
+const Player = ({currentSong, isPlaying, setIsPlaying,audioReference, songInfo, setSongInfo}) => {
 
-    const audioReference = useRef(null);
-
-    //STATE
-    const [songInfo, setSongInfo] =useState({
-        currentTime : 0,
-        duration : 0,
-    })
+  
     
     //EVENTS
     const playHandler = () => {
@@ -34,13 +28,6 @@ const Player = ({currentSong, isPlaying, setIsPlaying}) => {
     }
 
 
-    //function to update the current time and duration of the song
-    const timeUpdateHandler = (e) => {
-     const currentTime = e.target.currentTime;
-     const duration = e.target.duration;
-     setSongInfo({currentTime : currentTime, duration : duration});
-     console.log(duration)
-    }
 
      //function to update time 
    const getTime =(time) => {
@@ -67,7 +54,6 @@ return(
 <FontAwesomeIcon className='skip-forward' icon ={faAngleRight} size = '2x'/>
 </ div>
 
-<audio  onTimeUpdate ={timeUpdateHandler}  onLoadedMetadata={timeUpdateHandler} src ={currentSong.audio} ref={audioReference}></audio>
 </div>
 )}
 
