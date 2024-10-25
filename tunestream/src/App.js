@@ -8,7 +8,7 @@ import data from './util'
 function App() {
 //STATE
 const [songs, setSong]  = useState(data());
-const [currentSong, setCurrentSong] = useState(songs[8])
+const [currentSong, setCurrentSong] = useState(songs[2])
 const [isPlaying, setIsPlaying] = useState(false)
 
 const [songInfo, setSongInfo] =useState({
@@ -32,7 +32,7 @@ const audioReference = useRef(null);
     <div className="App">
      <Song currentSong= {currentSong}  />
      <Player currentSong= {currentSong} isPlaying ={isPlaying} setIsPlaying={setIsPlaying} audioReference={audioReference} songInfo={songInfo} setSongInfo={setSongInfo}/>
-     <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference}/>
+     <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}/>
 
 
      <audio  onTimeUpdate ={timeUpdateHandler}  onLoadedMetadata={timeUpdateHandler} src ={currentSong.audio} ref={audioReference}></audio>
