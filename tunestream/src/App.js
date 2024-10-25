@@ -4,12 +4,14 @@ import Player from './Components/Player';
 import Library from './Components/Library';
 import './styles/_app.scss';
 import data from './util'
+import Nav from './Components/Nav';
 
 function App() {
 //STATE
 const [songs, setSong]  = useState(data());
 const [currentSong, setCurrentSong] = useState(songs[2])
 const [isPlaying, setIsPlaying] = useState(false)
+const [libraryStatus, setLibraryStatus] = useState(false)
 
 const [songInfo, setSongInfo] =useState({
   currentTime : 0,
@@ -24,15 +26,20 @@ const audioReference = useRef(null);
   const currentTime = e.target.currentTime;
   const duration = e.target.duration;
   setSongInfo({currentTime : currentTime, duration : duration});
-  console.log(duration)
+
  }
 
 
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
      <Song currentSong= {currentSong}  />
-     <Player currentSong= {currentSong} isPlaying ={isPlaying} setIsPlaying={setIsPlaying} audioReference={audioReference} songInfo={songInfo} setSongInfo={setSongInfo}/>
-     <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}/>
+     <Player currentSong= {currentSong} isPlaying ={isPlaying} 
+     setIsPlaying={setIsPlaying} 
+     audioReference={audioReference} 
+     songInfo={songInfo} setSongInfo={setSongInfo}/>
+     <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}
+     libraryStatus={libraryStatus}/>
 
 
      <audio  onTimeUpdate ={timeUpdateHandler}  onLoadedMetadata={timeUpdateHandler} src ={currentSong.audio} ref={audioReference}></audio>

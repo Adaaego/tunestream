@@ -7,6 +7,9 @@
     overflow: scroll;
     background-color: #fff;
     box-shadow: 2px 2px 50px gray;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.5s ease;
     
 
 
@@ -41,6 +44,14 @@
     background-color: rgb(155, 155, 155);
     border-radius: 20px;
 }
+
+.active-library{
+    transform: translateX(0%);
+    opacity: 1;
+   
+}
+
+
 
 
     
