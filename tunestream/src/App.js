@@ -34,10 +34,14 @@ const audioReference = useRef(null);
     <div className="App">
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
      <Song currentSong= {currentSong}  />
+
      <Player currentSong= {currentSong} isPlaying ={isPlaying} 
      setIsPlaying={setIsPlaying} 
      audioReference={audioReference} 
-     songInfo={songInfo} setSongInfo={setSongInfo}/>
+     songInfo={songInfo} setSongInfo={setSongInfo} 
+     songs={songs} setCurrentSong={setCurrentSong}/>
+     
+
      <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}
      libraryStatus={libraryStatus}/>
 
