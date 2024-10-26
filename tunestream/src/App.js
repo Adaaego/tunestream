@@ -39,7 +39,8 @@ const audioReference = useRef(null);
      setIsPlaying={setIsPlaying} 
      audioReference={audioReference} 
      songInfo={songInfo} setSongInfo={setSongInfo} 
-     songs={songs} setCurrentSong={setCurrentSong}/>
+     songs={songs} setCurrentSong={setCurrentSong}
+     setSong={setSong}/>
      
 
      <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}
