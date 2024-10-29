@@ -65,6 +65,7 @@ const Player = ({
         <div className='player'>
             <div className='time-control'>
                 <p>{getTime(songInfo.currentTime)}</p>
+                <div className='track'>
                 <input
                     type='range'
                     min={0}
@@ -72,6 +73,8 @@ const Player = ({
                     value={songInfo.currentTime}
                     onChange={dragHandler}
                 />
+                <div className='animate-track'></div>
+                </div>
                 <p>{songInfo.duration ? getTime(songInfo.duration) : '0:00'}</p>
             </div>
 

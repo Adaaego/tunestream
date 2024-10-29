@@ -6,7 +6,7 @@
     min-height: 20vh;
 }
 .time-control{
-    width: 40%;
+    width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +14,9 @@
 
     input{
         flex: 1;
+        -webkit-appearance: none;
+        background: transparent;
+        cursor: pointer;
     }
 
     
@@ -22,8 +25,34 @@
     }
 }
 
+input[type ="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: black;
+}
+
 .play-control{
     width: 40%;
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center; 
+}
+
+.track{
+    width: 100%;
+    height: 1rem;
+    background: lightblue;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.animate-track{
+    background: rgb(204, 204, 204);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
