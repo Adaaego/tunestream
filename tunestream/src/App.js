@@ -3,8 +3,9 @@ import Song from './Components/Song';
 import Player from './Components/Player';
 import Library from './Components/Library';
 import './styles/_app.scss';
-import data from './data'
+import data from './data';
 import Nav from './Components/Nav';
+
 
 function App() {
 //STATE
@@ -29,6 +30,13 @@ const audioReference = useRef(null);
 
  }
 
+ //EVENTS
+ const songSelectHandler = async (song) => {
+  await setCurrentSong(song);
+  audioReference.current.play();
+};
+
+
 
   return (
     <div className="App">
@@ -40,11 +48,12 @@ const audioReference = useRef(null);
      audioReference={audioReference} 
      songInfo={songInfo} setSongInfo={setSongInfo} 
      songs={songs} setCurrentSong={setCurrentSong}
-     setSong={setSong}/>
+     setSong={setSong}
+     songSelectHandler={songSelectHandler}/>
      
 
      <Library songs ={songs} setCurrentSong={setCurrentSong}audioReference={audioReference} setSong={setSong}
-     libraryStatus={libraryStatus}/>
+     libraryStatus={libraryStatus} songSelectHandler={songSelectHandler}/>
 
 
      <audio  onTimeUpdate ={timeUpdateHandler}  onLoadedMetadata={timeUpdateHandler} src ={currentSong.audio} ref={audioReference}></audio>

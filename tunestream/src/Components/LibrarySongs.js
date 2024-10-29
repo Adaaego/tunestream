@@ -1,21 +1,10 @@
 import React from 'react';
 
-const LibrarySongs =({song, setCurrentSong, audioReference, setSong, songs, id}) =>{
+const LibrarySongs =({song, setCurrentSong, audioReference, setSong, songs, id, songSelectHandler}) =>{
 
-
-    const songSelectHandler = async () => {
-        await setCurrentSong(song);
-        audioReference.current.play();
-    };
-
-    
-
-
-   
-     
 
     return(
-        <div className={`library-songs ${song.active ? 'selected' : ''}`} onClick={songSelectHandler}>
+        <div className={`library-songs ${song.active ? 'selected' : ''}`} onClick={() => songSelectHandler(song)}>
        <img src ={song.cover} alt ={song.name}></img>
        <div className='song-description'>
        <h3>{song.name}</h3>

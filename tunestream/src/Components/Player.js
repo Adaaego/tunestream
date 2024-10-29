@@ -11,7 +11,8 @@ const Player = ({
     setSongInfo,
     songs,
     setCurrentSong,
-    setSong
+    setSong, 
+    songSelectHandler
 }) => {
     // USE EFFECT TO CHANGE THE ACTIVE STATUS AS THE SONG CHANGES
     useEffect(() => {
@@ -21,7 +22,7 @@ const Player = ({
         }));
 
         setSong(updatedSongs); // Update the songs state
-    }, [currentSong, songs, setSong]);
+    }, [currentSong]);
 
     // EVENTS
     const playHandler = () => {
@@ -42,16 +43,15 @@ const Player = ({
     const skipHandler = (direction) => {
         // finding the index of the current song
         const currentIndex = songs.findIndex(song => song.id === currentSong.id);
+        let nextSong;
 
         if (direction === 'skip-forward') {
-            setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+            nextSong = songs[(currentIndex + 1) % songs.length];
         } else if (direction === 'skip-backward') {
-            if (currentIndex === 0) {
-                setCurrentSong(songs[songs.length - 1]);
-            } else {
-                setCurrentSong(songs[currentIndex - 1]);
-            }
+            nextSong = currentIndex === 0 ? songs[songs.length - 1] : songs[currentIndex - 1];
         }
+
+        songSelectHandler(nextSong);
     };
 
     // function to update time
