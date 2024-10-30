@@ -17,6 +17,9 @@ const [libraryStatus, setLibraryStatus] = useState(false)
 const [songInfo, setSongInfo] =useState({
   currentTime : 0,
   duration : 0,
+  animationPercentage : 0,
+
+ 
 })
 
 //REFERENCE 
@@ -26,7 +29,14 @@ const audioReference = useRef(null);
  const timeUpdateHandler = (e) => {
   const currentTime = e.target.currentTime;
   const duration = e.target.duration;
-  setSongInfo({currentTime : currentTime, duration : duration});
+  
+  //function to round time from decimal to whole number 
+  const roundedCurrentTime = Math.round(currentTime);
+  const roundedDuration =Math.round(duration)
+  const animationPercentage = Math.round((roundedCurrentTime / roundedDuration) * 100)
+
+
+  setSongInfo({currentTime : currentTime, duration : duration, animationPercentage: animationPercentage});
 
  }
 

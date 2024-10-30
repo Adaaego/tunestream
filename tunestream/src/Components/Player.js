@@ -60,6 +60,10 @@ const Player = ({
             Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
         );
     };
+// Function to update the translateX transform based on animationPercentage
+const trackAnimation = {
+    transform: `translateX(${songInfo.animationPercentage}%)`
+  };
 
     return (
         <div className='player'>
@@ -73,7 +77,7 @@ const Player = ({
                     value={songInfo.currentTime}
                     onChange={dragHandler}
                 />
-                <div className='animate-track'></div>
+                <div className='animate-track'  style={trackAnimation}></div>
                 </div>
                 <p>{songInfo.duration ? getTime(songInfo.duration) : '0:00'}</p>
             </div>

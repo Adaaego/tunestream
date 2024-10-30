@@ -13,7 +13,6 @@
     padding: 1rem 2rem;
 
     input{
-        flex: 1;
         -webkit-appearance: none;
         background: transparent;
         cursor: pointer;
@@ -29,7 +28,6 @@ input[type ="range"]::-webkit-slider-thumb{
     -webkit-appearance: none;
     width: 16px;
     height: 16px;
-    background: black;
 }
 
 .play-control{
@@ -55,4 +53,6 @@ input[type ="range"]::-webkit-slider-thumb{
     position: absolute;
     left: 0;
     top: 0;
+    transform: translateX(0%);
+    pointer-events: none;
 }
